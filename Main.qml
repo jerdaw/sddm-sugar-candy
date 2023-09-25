@@ -104,8 +104,6 @@ Pane {
             anchors.left: config.FormPosition == "left" ? parent.left : undefined
             anchors.right: config.FormPosition == "right" ? parent.right : undefined
 
-            anchors.topMargin: root.font.pointSize * 5
-
             virtualKeyboardActive: virtualKeyboard.state == "visible" ? true : false
             z: 1
         }
