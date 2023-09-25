@@ -34,8 +34,6 @@ Pane {
     height: config.ScreenHeight || Screen.height
     width: config.ScreenWidth || Screen.ScreenWidth
 
-    anchors.topMargin: root.font.pointSize * 4.5
-
     LayoutMirroring.enabled: config.ForceRightToLeft == "true" ? true : Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
@@ -76,6 +74,8 @@ Pane {
         anchors.fill: parent
         height: parent.height
         width: parent.width
+
+        anchors.topMargin: root.font.pointSize * 5
 
         Rectangle {
             id: tintLayer
