@@ -370,50 +370,6 @@ Column {
     }
 
     Item {
-        height: root.font.pointSize * 4.3
-        width: parent.width / 2
-        anchors.horizontalCenter: parent.horizontalCenter
-        Label {
-            id: errorMessage
-            width: parent.width
-            text: failed ? config.TranslateLoginFailedWarning || textConstants.loginFailed + "!" : keyboard.capsLock ? config.TranslateCapslockWarning || textConstants.capslockWarning : null
-            horizontalAlignment: Text.AlignHCenter
-            font.pointSize: root.font.pointSize * 1.5
-            font.italic: true
-            color: root.palette.text
-            opacity: 0
-            states: [
-                State {
-                    name: "fail"
-                    when: failed
-                    PropertyChanges {
-                        target: errorMessage
-                        opacity: 1
-                        font.pointSize: root.font.pointSize * 1.5
-                        color: "#bf616a"
-                    }
-                },
-                State {
-                    name: "capslock"
-                    when: keyboard.capsLock
-                    PropertyChanges {
-                        target: errorMessage
-                        opacity: 1
-                    }
-                }
-            ]
-            transitions: [
-                Transition {
-                    PropertyAnimation {
-                        properties: "opacity"
-                        duration: 100
-                    }
-                }
-            ]
-        }
-    }
-
-    Item {
         id: login
         height: root.font.pointSize * 3
         width: parent.width / 2
@@ -520,6 +476,50 @@ Column {
         loginButtonWidth: loginButton.background.width
     }
 
+    Item {
+        height: root.font.pointSize * 4.3
+        width: parent.width / 2
+        anchors.horizontalCenter: parent.horizontalCenter
+        Label {
+            id: errorMessage
+            width: parent.width
+            text: failed ? config.TranslateLoginFailedWarning || textConstants.loginFailed + "!" : keyboard.capsLock ? config.TranslateCapslockWarning || textConstants.capslockWarning : null
+            horizontalAlignment: Text.AlignHCenter
+            font.pointSize: root.font.pointSize * 1.5
+            font.italic: true
+            color: root.palette.text
+            opacity: 0
+            states: [
+                State {
+                    name: "fail"
+                    when: failed
+                    PropertyChanges {
+                        target: errorMessage
+                        opacity: 1
+                        font.pointSize: root.font.pointSize * 1.5
+                        color: "#bf616a"
+                    }
+                },
+                State {
+                    name: "capslock"
+                    when: keyboard.capsLock
+                    PropertyChanges {
+                        target: errorMessage
+                        opacity: 1
+                    }
+                }
+            ]
+            transitions: [
+                Transition {
+                    PropertyAnimation {
+                        properties: "opacity"
+                        duration: 100
+                    }
+                }
+            ]
+        }
+    }
+
     Connections {
         target: sddm
         onLoginSucceeded: {}
@@ -531,7 +531,7 @@ Column {
 
     Timer {
         id: resetError
-        interval: 2000
+        interval: 60000
         onTriggered: failed = false
         running: false
     }
