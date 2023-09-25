@@ -67,7 +67,7 @@ Column {
             onActivated: {
                 username.text = ""
             }
-
+/*
             delegate: ItemDelegate {
                 width: parent.width
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -89,7 +89,7 @@ Column {
                 color: "transparent"
                 border.color: "transparent"
             }
-/*
+
             popup: Popup {
                 y: parent.height - username.height / 3
                 x: config.ForceRightToLeft == "true" ? -loginButton.width + selectUser.width : 0
@@ -125,7 +125,7 @@ Column {
                     NumberAnimation { property: "opacity"; from: 0; to: 1 }
                 }
             }
-*/
+/*
 
             transitions: [
                 Transition {
