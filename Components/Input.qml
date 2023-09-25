@@ -65,7 +65,7 @@ Column {
             textRole: "name"
             hoverEnabled: true
             onActivated: {
-                username.text = currentText
+                username.text = ""
             }
 
             delegate: ItemDelegate {
@@ -83,20 +83,6 @@ Column {
                 background: Rectangle {
                     color: selectUser.highlightedIndex === index ? root.palette.highlight : "transparent"
                 }
-            }
-
-            indicator: Button {
-                    id: usernameIcon
-                    width: selectUser.height * 0.8
-                    height: parent.height
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.leftMargin: selectUser.height * 0.125
-                    icon.height: parent.height * 0.25
-                    icon.width: parent.height * 0.25
-                    enabled: false
-                    icon.color: root.palette.text
-                    icon.source: Qt.resolvedUrl("../Assets/User.svgz")
             }
 
             background: Rectangle {
@@ -140,32 +126,6 @@ Column {
                 }
             }
 
-            states: [
-                State {
-                    name: "pressed"
-                    when: selectUser.down
-                    PropertyChanges {
-                        target: usernameIcon
-                        icon.color: Qt.lighter(root.palette.highlight, 1.1)
-                    }
-                },
-                State {
-                    name: "hovered"
-                    when: selectUser.hovered
-                    PropertyChanges {
-                        target: usernameIcon
-                        icon.color: Qt.lighter(root.palette.highlight, 1.2)
-                    }
-                },
-                State {
-                    name: "focused"
-                    when: selectUser.activeFocus
-                    PropertyChanges {
-                        target: usernameIcon
-                        icon.color: root.palette.highlight
-                    }
-                }
-            ]
 
             transitions: [
                 Transition {
@@ -235,7 +195,7 @@ Column {
             focus: config.ForcePasswordFocus == "true" ? true : false
             selectByMouse: true
             echoMode: revealSecret.checked ? TextInput.Normal : TextInput.Password
-            placeholderText: config.TranslatePlaceholderPassword || textConstants.password
+            placeholderText: config.TranslatePlaceholderPassword || ""
             horizontalAlignment: TextInput.AlignHCenter
             passwordCharacter: "•"
             passwordMaskDelay: config.ForceHideCompletePassword == "true" ? undefined : 1000
@@ -309,7 +269,7 @@ Column {
 
             contentItem: Text {
                 id: indicatorLabel
-                text: config.TranslateShowPassword || "Show Password"
+                text: config.TranslateShowPassword || "Show"
                 anchors.verticalCenter: indicator.verticalCenter
                 horizontalAlignment: Text.AlignLeft
                 anchors.left: indicator.right
@@ -410,7 +370,7 @@ Column {
     }
 
     Item {
-        height: root.font.pointSize * 2.3
+        height: root.font.pointSize * 4.3
         width: parent.width / 2
         anchors.horizontalCenter: parent.horizontalCenter
         Label {
@@ -418,7 +378,7 @@ Column {
             width: parent.width
             text: failed ? config.TranslateLoginFailedWarning || textConstants.loginFailed + "!" : keyboard.capsLock ? config.TranslateCapslockWarning || textConstants.capslockWarning : null
             horizontalAlignment: Text.AlignHCenter
-            font.pointSize: root.font.pointSize * 0.8
+            font.pointSize: root.font.pointSize * 1.5
             font.italic: true
             color: root.palette.text
             opacity: 0
