@@ -61,11 +61,11 @@ Column {
             z: 2
 
             model: userModel
-            currentIndex: model.lastIndex
+            currentIndex: "test5"
             textRole: "name"
             hoverEnabled: true
             onActivated: {
-                username.text = ""
+                username.text = "test4"
             }
 
             delegate: ItemDelegate {
@@ -368,7 +368,7 @@ Column {
         ]
 
     }
-
+/*
     Item {
         id: login
         height: root.font.pointSize * 3
@@ -469,12 +469,14 @@ Column {
             KeyNavigation.down: sessionSelect.exposeSession
         }
     }
-
+*/
     SessionButton {
         id: sessionSelect
         textConstantSession: textConstants.session
         loginButtonWidth: loginButton.background.width
     }
+
+    Item { Layout.fillHeight: true }
 
     Item {
         height: root.font.pointSize * 4.3
