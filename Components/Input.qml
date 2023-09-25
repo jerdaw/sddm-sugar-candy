@@ -40,7 +40,7 @@ Column {
         height: root.font.pointSize * 4.5
         width: parent.width / 2
         anchors.horizontalCenter: parent.horizontalCenter
-
+/*
         ComboBox {
 
             id: selectUser
@@ -67,7 +67,7 @@ Column {
             onActivated: {
                 username.text = ""
             }
-/*
+
             delegate: ItemDelegate {
                 width: parent.width
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -125,7 +125,7 @@ Column {
                     NumberAnimation { property: "opacity"; from: 0; to: 1 }
                 }
             }
-/*
+
 
             transitions: [
                 Transition {
@@ -137,10 +137,10 @@ Column {
             ]
 
         }
-
+*/
         TextField {
             id: username
-            text: config.ForceLastUser == "true" ? selectUser.currentText : null
+            //text: config.ForceLastUser == "true" ? selectUser.currentText : null
             font.capitalization: config.AllowBadUsernames == "false" ? Font.Capitalize : Font.MixedCase
             anchors.centerIn: parent
             height: root.font.pointSize * 3
