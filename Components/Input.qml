@@ -207,7 +207,7 @@ Column {
                 radius: config.RoundCorners || 0
             }
             onAccepted: loginButton.clicked()
-            KeyNavigation.down: revealSecret
+            KeyNavigation.down: sessionSelect.exposeSession
         }
 
         states: [
@@ -234,7 +234,7 @@ Column {
             }
         ]
     }
-
+/*
     Item {
         id: secretCheckBox
         height: root.font.pointSize * 7
@@ -368,6 +368,7 @@ Column {
         ]
 
     }
+*/
 /*
     Item {
         id: login
