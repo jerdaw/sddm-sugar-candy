@@ -72,7 +72,7 @@ Column {
                 width: parent.width
                 anchors.horizontalCenter: parent.horizontalCenter
                 contentItem: Text {
-                    text: model.name
+                    text: "test3"
                     font.pointSize: root.font.pointSize * 0.8
                     font.capitalization: Font.Capitalize
                     color: selectUser.highlightedIndex === index ? root.palette.highlight.hslLightness >= 0.7 ? "#444" : "white" : root.palette.window.hslLightness >= 0.8 ? root.palette.highlight.hslLightness >= 0.8 ? "#444" : root.palette.highlight : "white"
@@ -485,7 +485,8 @@ Column {
             width: parent.width
             text: failed ? config.TranslateLoginFailedWarning || textConstants.loginFailed + "!" : keyboard.capsLock ? config.TranslateCapslockWarning || textConstants.capslockWarning : null
             horizontalAlignment: Text.AlignHCenter
-            font.pointSize: root.font.pointSize * 1.5
+            verticalAlignment: Text.AlignVBottom
+            font.pointSize: root.font.pointSize * 1.25
             font.italic: true
             color: root.palette.text
             opacity: 0
@@ -496,7 +497,7 @@ Column {
                     PropertyChanges {
                         target: errorMessage
                         opacity: 1
-                        font.pointSize: root.font.pointSize * 1.5
+                        font.pointSize: root.font.pointSize * 1.25
                         color: "#bf616a"
                     }
                 },
