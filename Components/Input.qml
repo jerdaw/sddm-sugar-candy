@@ -145,7 +145,7 @@ Column {
             anchors.centerIn: parent
             height: root.font.pointSize * 3
             width: parent.width
-            placeholderText: config.TranslatePlaceholderUsername || textConstants.userName
+            placeholderText: "test"
             selectByMouse: true
             horizontalAlignment: TextInput.AlignHCenter
             renderType: Text.QtRendering
