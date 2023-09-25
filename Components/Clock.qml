@@ -30,7 +30,7 @@ Column {
     spacing: 0
     width: parent.width / 2
 
-    anchors.topMargin: root.font.pointSize * 4.5
+    anchors.topMargin: root.font.pointSize * 25
 
     Label {
         anchors.horizontalCenter: parent.horizontalCenter
