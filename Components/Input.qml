@@ -207,7 +207,7 @@ Column {
                 radius: config.RoundCorners || 0
             }
 
-            // Add this handler to trigger login on Enter key press
+            // Handler to trigger login on Enter key press
             onAccepted: {
                 if (config.AllowEmptyPassword == "true" || username.text != "" && password.text != "") {
                     config.AllowBadUsernames == "false" ? sddm.login(username.text.toLowerCase(), password.text, sessionSelect.selectedSession) : sddm.login(username.text, password.text, sessionSelect.selectedSession);
@@ -241,7 +241,7 @@ Column {
             }
         ]
     }
-
+/*
     Item {
         id: secretCheckBox
         height: root.font.pointSize * 7
@@ -375,7 +375,8 @@ Column {
         ]
 
     }
-
+*/
+/*
     Item {
         id: login
         height: root.font.pointSize * 3
@@ -476,7 +477,7 @@ Column {
             KeyNavigation.down: sessionSelect.exposeSession
         }
     }
-
+*/
     SessionButton {
         id: sessionSelect
         textConstantSession: textConstants.session
