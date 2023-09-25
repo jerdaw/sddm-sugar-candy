@@ -429,6 +429,8 @@ Column {
                     PropertyChanges {
                         target: errorMessage
                         opacity: 1
+                        font.pointSize: root.font.pointSize * 1.5
+                        color: "#bf616a"
                     }
                 },
                 State {
