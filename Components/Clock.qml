@@ -30,6 +30,8 @@ Column {
     spacing: 0
     width: parent.width / 2
 
+    anchors.topMargin: root.font.pointSize * 4.5
+
     Label {
         anchors.horizontalCenter: parent.horizontalCenter
         font.pointSize: config.HeaderText !=="" ? root.font.pointSize * 3 : 0
