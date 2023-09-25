@@ -87,10 +87,14 @@ Column {
 
     Item {
         id: passwordField
-        activeFocus: true
         height: root.font.pointSize * 4.5
         width: parent.width / 2
         anchors.horizontalCenter: parent.horizontalCenter
+
+        // Set the focus on the password field when the component is completed
+        Component.onCompleted: {
+            password.forceActiveFocus();
+        }
 
         TextField {
             id: password
