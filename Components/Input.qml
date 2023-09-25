@@ -43,13 +43,13 @@ Column {
 
         TextField {
             id: username
-            //text: config.ForceLastUser == "true" ? selectUser.currentText : null
-            text: "Jer"
+            //text: config.ForceLastUser == "true" ? selectUser.currentText : config.DefaultUser
+            text: config.DefaultUser
             font.capitalization: config.AllowBadUsernames == "false" ? Font.Capitalize : Font.MixedCase
             anchors.centerIn: parent
             height: root.font.pointSize * 3
             width: parent.width
-            placeholderText: config.TranslatePlaceholderUsername || textConstants.userName
+            placeholderText: config.TranslatePlaceholderUsername || ""
             selectByMouse: true
             horizontalAlignment: TextInput.AlignHCenter
             renderType: Text.QtRendering
