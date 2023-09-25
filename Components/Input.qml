@@ -33,7 +33,7 @@ Column {
 
     property Control exposeSession: sessionSelect.exposeSession
     property bool failed
-
+/*
     Item {
         id: usernameField
 
@@ -180,7 +180,7 @@ Column {
         }
 
     }
-
+*/
     Item {
         id: passwordField
         height: root.font.pointSize * 4.5
