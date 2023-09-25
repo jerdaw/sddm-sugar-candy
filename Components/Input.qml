@@ -89,7 +89,7 @@ Column {
                 color: "transparent"
                 border.color: "transparent"
             }
-
+/*
             popup: Popup {
                 y: parent.height - username.height / 3
                 x: config.ForceRightToLeft == "true" ? -loginButton.width + selectUser.width : 0
@@ -125,7 +125,7 @@ Column {
                     NumberAnimation { property: "opacity"; from: 0; to: 1 }
                 }
             }
-
+*/
 
             transitions: [
                 Transition {
@@ -194,7 +194,7 @@ Column {
             width: parent.width
             focus: config.ForcePasswordFocus == "true" ? true : false
             selectByMouse: true
-            echoMode: revealSecret.checked ? TextInput.Normal : TextInput.Password
+            echoMode: TextInput.Password
             placeholderText: config.TranslatePlaceholderPassword || ""
             horizontalAlignment: TextInput.AlignHCenter
             passwordCharacter: "•"
