@@ -61,18 +61,18 @@ Column {
             z: 2
 
             model: userModel
-            currentIndex: "test5"
+            currentIndex: model.lastIndex
             textRole: "name"
             hoverEnabled: true
             onActivated: {
-                username.text = "test4"
+                username.text = ""
             }
 
             delegate: ItemDelegate {
                 width: parent.width
                 anchors.horizontalCenter: parent.horizontalCenter
                 contentItem: Text {
-                    text: "test3"
+                    text: model.name
                     font.pointSize: root.font.pointSize * 0.8
                     font.capitalization: Font.Capitalize
                     color: selectUser.highlightedIndex === index ? root.palette.highlight.hslLightness >= 0.7 ? "#444" : "white" : root.palette.window.hslLightness >= 0.8 ? root.palette.highlight.hslLightness >= 0.8 ? "#444" : root.palette.highlight : "white"
@@ -140,12 +140,12 @@ Column {
 
         TextField {
             id: username
-            text: "test1"
+            text: config.ForceLastUser == "true" ? selectUser.currentText : null
             font.capitalization: config.AllowBadUsernames == "false" ? Font.Capitalize : Font.MixedCase
             anchors.centerIn: parent
             height: root.font.pointSize * 3
             width: parent.width
-            placeholderText: "test2"
+            placeholderText: config.TranslatePlaceholderUsername || textConstants.userName
             selectByMouse: true
             horizontalAlignment: TextInput.AlignHCenter
             renderType: Text.QtRendering
