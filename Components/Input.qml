@@ -33,7 +33,7 @@ Column {
 
     property Control exposeSession: sessionSelect.exposeSession
     property bool failed
-/*
+
     Item {
         id: usernameField
 
@@ -180,7 +180,7 @@ Column {
         }
 
     }
-*/
+
     Item {
         id: passwordField
         height: root.font.pointSize * 4.5
@@ -206,7 +206,14 @@ Column {
                 border.width: parent.activeFocus ? 2 : 1
                 radius: config.RoundCorners || 0
             }
-            onAccepted: loginButton.clicked()
+
+            // Add this handler to trigger login on Enter key press
+            onAccepted: {
+                if (config.AllowEmptyPassword == "true" || username.text != "" && password.text != "") {
+                    config.AllowBadUsernames == "false" ? sddm.login(username.text.toLowerCase(), password.text, sessionSelect.selectedSession) : sddm.login(username.text, password.text, sessionSelect.selectedSession);
+                }
+            }
+
             KeyNavigation.down: sessionSelect.exposeSession
         }
 
@@ -234,7 +241,7 @@ Column {
             }
         ]
     }
-/*
+
     Item {
         id: secretCheckBox
         height: root.font.pointSize * 7
@@ -368,8 +375,7 @@ Column {
         ]
 
     }
-*/
-/*
+
     Item {
         id: login
         height: root.font.pointSize * 3
@@ -470,7 +476,7 @@ Column {
             KeyNavigation.down: sessionSelect.exposeSession
         }
     }
-*/
+
     SessionButton {
         id: sessionSelect
         textConstantSession: textConstants.session
